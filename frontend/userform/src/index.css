@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+  margin: 10px;
+  padding: 50px;
+  font-family: sans-serif;
+  background-image: linear-gradient(to right, rgb(66, 121, 204) , rgb(168, 72, 177));
+}
