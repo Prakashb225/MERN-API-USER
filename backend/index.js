@@ -14,8 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGO_URL)
+
   .then(() => {
     console.log("MongoDB connected");
   })
@@ -34,7 +36,7 @@ app.post("/api/postUser", async (req, res) => {
   if (!name || !email || !age) {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
-  // const userExists = usermodel.findOne({email});
+  // const userExists = usermodel.findOne({ email: req.body.email == true });
   // if (userExists) {
   //   res.status(400).json({ msg: "Email already exists" });
   // }
@@ -52,23 +54,17 @@ app.post("/api/postUser", async (req, res) => {
   }
 });
 
-
-app.delete("/api/delete",(req,res)=>{
- const{userid}=req.params.userid;
- try {
-  usermodel.deleteOne({_id : userid},(err,res)=>{
-
-    console.log(err);
-    res.send('Deleted Successfully');
-  })
-
-  
- } catch (error) {
-  console.log(error);
- }
- 
-})
-
+app.delete("/api/delete/:id", (req, res) => {
+  const userid = req.params.id;
+  try {
+    usermodel.deleteOne({ _id: userid }, (err) => {
+      console.log(err);
+    });
+    res.json("Deleted  Successfully");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
