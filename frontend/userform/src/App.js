@@ -112,31 +112,44 @@ function App() {
       </form>
 
       <div>
-        {apiData &&
-          apiData.map((item) => {
-            // console.log(item);
-            return (
-              <table>
-                <tbody>
-                  <tr>
-                    <th>Name</th>&nbsp;
-                    <th>Email</th>&nbsp;
-                    <th>Age</th>&nbsp;
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td>{item.name}</td>&nbsp;&nbsp;&nbsp;
-                    <td>{item.email}</td>&nbsp;&nbsp;&nbsp;
-                    <td>{item.age}</td>
-                    <button onClick={() => deleteUser(item._id, item.name)}>
-                      Delete
-                    </button>
-                  </tr>
-                </tbody>
-              </table>
-            );
-          })}
+        {apiData && (
+          <table style={{display:"flex"}}>
+              <th>Name</th>
+            <tbody>
+
+              {apiData.map((item, id) => {
+                return <td key={id}>{item.name}</td>;
+              })}
+</tbody>
+              <th>Email</th>
+<tbody>
+
+
+              {apiData.map((item, id) => {
+                return <td key={id}>{item.email}</td>;
+              })}
+</tbody>
+              <th>Age</th>
+<tbody>
+
+              {apiData.map((item, id) => {
+                return (
+                  <div style={{display:"flex", gap:"50px"}}>
+
+                <td key={id}>{item.age}</td>
+
+                <button className="btndel"onClick={() => deleteUser(item._id, item.name)}>
+                  Delete
+                </button>
+
+                  </div>
+                
+              )})}
+              
+</tbody>
+
+          </table>
+        )}
       </div>
     </div>
   );

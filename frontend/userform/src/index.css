@@ -9,4 +9,37 @@ body {
   padding: 50px;
   font-family: sans-serif;
   background-image: linear-gradient(to right, rgb(66, 121, 204) , rgb(168, 72, 177));
+  
+}
+
+td{
+display: flex;
+flex-direction: column;
+padding: 25px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+margin-bottom: 10px;
+font-size: 1rem;
+color:#fff;
+text-decoration: none;
+
+} 
+tbody{
+margin-top: 30px;
+margin-left: -50px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+}
+table{
+  border: 1px solid black;
+  padding: 25px;
+  margin-left: 100px;
+  margin-top: 40px;
+  width: 60%;
+}
+.btndel{
+  object-fit: contain;
+  height: 25px;
+  margin-top: 25px;
+  border-radius: 10px;
+  cursor: pointer;
 }
