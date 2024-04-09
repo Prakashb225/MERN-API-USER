@@ -4,6 +4,7 @@ function App() {
   const [data, setData] = useState({ name: "", email: "", age: "" });
   const [apiData, setApiData] = useState("");
   const [id, setId] = useState();
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,12 +28,7 @@ function App() {
 
     alert("User Added Successfully");
 
-    //   if ((res.status = 400 || !data)) {
-    //     alert("Invalid User");
-    //   } else {
-    //     console.log("Successful Submission");
-    //     console.log(data);
-    //   }
+  
   };
   const getData = async () => {
     await fetch("http://localhost:5001/api/getUsers", {
